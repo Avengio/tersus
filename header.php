@@ -59,4 +59,7 @@
 		<header>
 			<h1><a href="<?php echo get_option('home'); ?>/" title="This will take you home"><?php bloginfo('name'); ?></a></h1>
 			<p><?php bloginfo('description'); ?></p>
+			<nav>
+				<?php wp_list_pages('title_li=&depth=1'); ?>
+			</nav>
 		</header>
