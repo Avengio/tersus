@@ -1,0 +1,46 @@
+-----------------------------------------------------------------------------
+----------- GENERAL LOG FOR CALGARYAIKIKAI.COM DEV --------------------------
+-----------------------------------------------------------------------------
+
+-------------------------------------
+14 November, 2011 11:47:38 PM MST
+-------------------------------------
+- Added the repo to the root of the server
+- Pushed contents of the local git repo to remote repo
+- Cloned contents of the remote repo to the staging environment
+- Connected and tested using the same mySQL instance for both stage and local environments
+
+NEXT steps: Port ALL content from existing site over to the new wordpress instance
+
+
+
+-------------------------------------
+15 November, 2011 11:03:46 PM MST
+-------------------------------------
+- Goofing around with a new unspoiled tersus theme
+- Need to figure out how to add a subnav to each of the main nav pages pages
+- Added the main nav to the <nav> element in the header
+- Also would like to know how to add the flavours to the the stylesheet stack so that I can customize my own
+
+
+-------------------------------------
+24 November, 2011 11:50:02 PM MST
+-------------------------------------
+Figured out and added subpages to individual pages on wordpress
+IMPORTANT: need to create a either a separate page for the homepage or need to create a separate page for additional pages; new template
+IMPORTANT: need to get mod_rewrite working so that we can have pretty URLs
+
+
+-------------------------------------
+30 November, 2011 11:35:51 PM MST
+-------------------------------------
+OK - So I had to start over with the repo in github. This allowed me to get getting updates from the tersus theme while I dev the site in an experimental branch
+Figured out how to add a main nav to the header as well as show certain pages on the home page.
+Dumped all the raw content into the same pages as currently exists on calgaryaikikai.com 
+Added the OOCSS grids module to the style sheet import stack
+GOing to bed now
+
+NEXT STEPS:
+Layout the home page to using the grids templates
+Merge the two sidebars into one
+

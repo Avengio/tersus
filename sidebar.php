@@ -92,7 +92,7 @@
 	// Display a list of pages
 	if ( is_home() ) { ?>
 		<ul>
-  			<?php wp_list_pages('include=18&title_li=<h2>' . __('More info') . '</h2>' ); ?>
+  			<?php wp_list_pages('include=18,48,54,70,67&title_li=<h2>' . __('More info') . '</h2>' ); ?>
  		</ul>
 	<?php } else {
 		$children = wp_list_pages('title_li=<h2>More info</h2>&child_of='.$post->ID.'&echo=0'); ?>

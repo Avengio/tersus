@@ -62,7 +62,7 @@
 			<nav class="primary">
 				<ul>
 				  <li><a href="<?php echo get_settings('home'); ?>">Home</a>
-				  <?php wp_list_pages('title_li=&depth=1'); ?>
+				  <?php wp_list_pages('title_li=&depth=1&exclude=18,48,54,70,67'); ?>
 				</ul>
 				
 			</nav>
