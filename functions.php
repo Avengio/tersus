@@ -293,4 +293,16 @@
 		}
 	}
 
+
+// Add a home link to the pages widget so that we can have it as a menu item
+	
+	function home_page_menu_args( $args ) {
+		$args['show_home'] = true;
+		return $args;
+		}
+	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
+
+
 ?>
+
+

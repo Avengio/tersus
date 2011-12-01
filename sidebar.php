@@ -89,14 +89,25 @@
 	<?php
 	// Used widgetized sidebar, if the plugin is installed
 	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar( 'sidebar1' ) ) :
-
 	// Display a list of pages
-	$children = wp_list_pages('title_li=<h2>Sections</h2>&child_of='.$post->ID.'&echo=0');
-	if ($children) { ?>
+	if ( is_home() ) { ?>
 		<ul>
-			<?php echo $children; ?>
-		</ul>
-	<?php } ?>
+  			<?php wp_list_pages('include=18&title_li=<h2>' . __('More info') . '</h2>' ); ?>
+ 		</ul>
+	<?php } else {
+		$children = wp_list_pages('title_li=<h2>More info</h2>&child_of='.$post->ID.'&echo=0'); ?>
+		<?php if ($children) { ?>
+			<ul>
+				<?php echo $children; ?>
+			</ul>
+		<?php } 
+	} ?>
+
+
+
+
+
+	
 
 	<?php
 	// Display a list of categories
