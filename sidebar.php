@@ -7,9 +7,31 @@
 
 <section class="sidebar" id="sidebar1">
 	<ul>
-	<?php 	/* Widgetized sidebar, if you have the plugin installed. */
+	<?php  //Widgetized sidebar, if you have the plugin installed.
 		if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar( 'sidebar2' ) ) :
-	?>
+			// Display a list of pages
+			if ( is_home() ) { ?>
+				<?php wp_list_pages('include=18,48,54,70,67&title_li=<h2>' . __('More info') . '</h2>' ); ?>
+			<?php } else {
+				$children = wp_list_pages('title_li=<h2>More info</h2>&child_of='.$post->ID.'&echo=0'); ?>
+				<?php if ($children) { ?>
+					<?php echo $children; ?>
+				<?php } 
+			} ?>
+		<?php
+		// Display a list of categories
+		wp_list_categories('show_count=1&title_li=<h2>Categories</h2>');
+		
+		?>
+		<li><h2>Archives</h2>
+			<ul>
+				<?php
+				// Display a list of monthly archives
+				wp_get_archives('type=monthly');
+				?>
+			</ul>
+		</li>
+
 		<li>
 			<h2>Search</h2>
 			<?php
@@ -82,45 +104,4 @@
 				endif;
 		?>
 	</ul>
-</section>
-			
-<section class="sidebar" id="sidebar2">
-<ul>
-	<?php
-	// Used widgetized sidebar, if the plugin is installed
-	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar( 'sidebar1' ) ) :
-	// Display a list of pages
-	if ( is_home() ) { ?>
-		<ul>
-  			<?php wp_list_pages('include=18,48,54,70,67&title_li=<h2>' . __('More info') . '</h2>' ); ?>
- 		</ul>
-	<?php } else {
-		$children = wp_list_pages('title_li=<h2>More info</h2>&child_of='.$post->ID.'&echo=0'); ?>
-		<?php if ($children) { ?>
-			<ul>
-				<?php echo $children; ?>
-			</ul>
-		<?php } 
-	} ?>
-
-
-
-
-
-	
-
-	<?php
-	// Display a list of categories
-	wp_list_categories('show_count=1&title_li=<h2>Categories</h2>');
-	endif;
-	?>
-<li><h2>Archives</h2>
-<ul>
-<?php
-// Display a list of monthly archives
-wp_get_archives('type=monthly');
-?>
-</ul>
-</li>
-</ul>
 </section>
