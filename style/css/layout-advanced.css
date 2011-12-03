@@ -97,7 +97,12 @@ header p {
 	margin: 0;
 	padding: 0;
 	}
-	
+
+header nav {}
+header nav ul {margin:0;padding:0;}
+header nav li {list-style-type: none;display:inline-block;}
+header nav li a {padding:.1875em .75em;}
+header nav li:first-child a {padding-left:0;}
 section#content {
 	float: left;
 	margin: 0;
@@ -116,6 +121,11 @@ section#content article img {
 	margin: 2em 0;
 	max-width: 100%;
 	}
+
+#content .buckets {border-bottom: 1px solid #aaa;margin:0 0 2em;padding:0 0 1em;}
+#content .buckets article {border:none;margin:0;}
+#content .buckets p, #content .buckets h3 {padding: 0 1.5em 0 0}
+#content .buckets img.thumb {float:left; padding:1px;margin:.2em .5em 0 0;border:1px dashed #aaa;}
 	
 section.sidebar {
 	float: right;
