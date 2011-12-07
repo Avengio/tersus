@@ -27,6 +27,16 @@ a:hover {
 	background: #DDD;
 	}
 
+blockquote {
+	background: #EEE;
+	margin: 1em 2em;
+	padding: 1em;
+	}
+
+blockquote > p {
+	margin-bottom: 0;
+	}
+
 code {
 	background: #DDD;
 	padding: 0.3em 0.5em;
@@ -56,7 +66,9 @@ input[type=submit]:active {
 	}
 
 textarea,
-input[type=text] {
+input[type=text],
+input[type=email],
+input[type=url] {
 	color: #333;
 	border: 1px solid #AAA;
 	border-radius: 3px;
@@ -64,14 +76,14 @@ input[type=text] {
 	padding: .5em;
 	}
 
-input[type=text]#s {
+form#searchform input[type=text] {
 	background: #DDD;
 	color: #333;
 	border: 1px solid transparent;
 	width: 95%;
 	}
 
-input[type=submit]#searchsubmit {
+form#searchform input[type=submit] {
 	display: none;
 	}
 
@@ -127,46 +139,46 @@ section#content article img {
 #content .buckets p, #content .buckets h3 {padding: 0 1.5em 0 0}
 #content .buckets img.thumb {float:left; padding:1px;margin:.2em .5em 0 0;border:1px dashed #aaa;}
 	
-section.sidebar {
+aside {
 	float: right;
 	margin: 0;
 	padding: 0 0 1em 2em;
 	width: 20%;
 	}
 
-section.sidebar ul {
+aside ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	text-indent: 0;
 	}
 
-section.sidebar ul li {
+aside ul li {
 	list-style: none !important;
 	}
 
-section.sidebar ul li form {
+aside ul li form {
 	margin: 0 0 2em 0;
 	}
 
-section.sidebar ul li ul {
+aside ul li ul {
 	margin: 0 0 2em 0;
 	}
 
-section.sidebar ul li ul li {
+aside ul li ul li {
 	font-weight: bold;
 	margin: 0;
 	}
 
-section.sidebar ul li ul li ul {
+aside ul li ul li ul {
 	margin: 0 0 0 1em;
 	}
 
-section.sidebar ul li ul li ul li {
+aside ul li ul li ul li {
 	font-weight: normal;
 	}
 
-section.sidebar h2 {
+aside h2 {
 	border-bottom: 1px solid #AAA;
 	font-size: 1em;
 	margin: 0 0 1em 0;
@@ -203,7 +215,7 @@ footer {
 		padding: 0 0 2.5% 0;
 		width: 65%;
 	}
-	section.sidebar {
+	aside {
 		float: right;
 		clear: right;
 		margin: 0 0 2.5% 0;
@@ -233,13 +245,13 @@ footer {
 	
 	header,
 	section#content,
-	section.sidebar,
+	aside,
 	footer {
 		float: none;
 		width: 95%;
 	}
 	
-	section.sidebar {
+	aside {
 		padding: 0;
 	}
 

@@ -21,12 +21,12 @@
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<h3><?php comments_number('No Comments', 'One Comment', '% Comments' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+	<h3><?php comments_number('No Comments', 'One comment', '% comments' );?> on “<?php the_title(); ?>”</h3>
 
 	<?php previous_comments_link(); delim_comment_link(); next_comments_link() ?>
 
 	<ol>
-	    <?php wp_list_comments(array('avatar_size'=>32, 'reply_text'=>'Reply')); ?>
+	    <?php wp_list_comments('type=comment&callback=tersus_comment'); ?>
 	</ol>
 
 	<?php previous_comments_link(); delim_comment_link(); next_comments_link() ?>
@@ -69,7 +69,7 @@
 		<p><input type="email" name="email" id="email" placeholder="you@example.com" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
 		<label for="email">Mail (<?php if ($req) echo "required, but "; ?>will not be published)</label></p>
 
-		<p><input type="url" name="url" id="url" placeholder="http://" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+		<p><input type="url" name="url" id="url" placeholder="http://example.com" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
 		<label for="url">Website</label></p>
 
 		<?php endif; ?>
