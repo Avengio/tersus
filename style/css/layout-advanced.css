@@ -1,13 +1,9 @@
 
 /*
 	Tersus Advanced Layout CSS
-	This is an optional stylesheet that provides some initial layout/structure.
+	This is an optional stylesheet that provides some initial layout and structure.
 */
 
-
-/*
-	Collapses space above and below subpage sidebar links
-*/
 
 body {
 	color: #333;
@@ -42,6 +38,8 @@ code {
 	padding: 0.3em 0.5em;
 	}
 
+.post-edit-link,
+.post-edit-link:visited,
 input[type=reset],
 input[type=submit] {
 	border: none;
@@ -50,16 +48,18 @@ input[type=submit] {
 	font-size: .8em;
 	cursor: pointer;
 	padding: 5px 10px;
-	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
+	border-radius: 3px;
 	}
 
+.post-edit-link:hover,
 input[type=reset]:hover,
 input[type=submit]:hover {
 	background: #333;
+	color: #FFF;
 	}
-
+	
 input[type=reset]:active,
 input[type=submit]:active {
 	background: #960;
@@ -76,14 +76,14 @@ input[type=url] {
 	padding: .5em;
 	}
 
-form#searchform input[type=text] {
+#searchform input[type=text] {
 	background: #DDD;
 	color: #333;
 	border: 1px solid transparent;
 	width: 95%;
 	}
 
-form#searchform input[type=submit] {
+#searchform input[type=submit] {
 	display: none;
 	}
 
@@ -95,7 +95,7 @@ header {
 
 header h1,
 article h2,
-section#content h2 {
+#content h2 {
 	background: transparent;
 	font-size: 300%;
 	letter-spacing: -1px;
@@ -115,20 +115,21 @@ header nav ul {margin:0;padding:0;}
 header nav li {list-style-type: none;display:inline-block;}
 header nav li a {padding:.1875em .75em;}
 header nav li:first-child a {padding-left:0;}
-section#content {
+	
+#content {
 	float: left;
 	margin: 0;
 	padding: 0 0 1em 0;
 	width: 75%;
 	}
 
-section#content article {
+#content article {
 	border-bottom: 1px solid #AAA;
 	margin: 0 0 2em 0;
 	padding: 0 0 1em 0;
 	}
 
-section#content article img {
+#content article img {
 	display: block;
 	margin: 2em 0;
 	max-width: 100%;
@@ -194,7 +195,7 @@ footer {
 	
 
 /*
-	iPad- Styles
+	iPad Styles
 */
 
 @media screen and (max-device-width: 1024px) {
@@ -206,10 +207,10 @@ footer {
 	footer {
 		float: none;
 		margin: 0 0 2.5% 0;
-		padding: 0 0 2.5%; 0
+		padding: 0 0 2.5% 0;
 		width: auto;
 	}
-	section#content {
+	#content {
 		float: left;
 		margin: 0 0 2.5% 0;
 		padding: 0 0 2.5% 0;
@@ -223,7 +224,7 @@ footer {
 		width: 25%;
 	}
 	
-	section#content article img {
+	#content article img {
 		float: none;
 	}
 	
@@ -234,7 +235,7 @@ footer {
 	
 	
 /*
-	Small-Screen Styles
+	Small Screen Styles
 */
 
 @media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 800px) {
@@ -244,7 +245,7 @@ footer {
 	}
 	
 	header,
-	section#content,
+	#content,
 	aside,
 	footer {
 		float: none;
@@ -255,8 +256,9 @@ footer {
 		padding: 0;
 	}
 
-	section#content article img {
+	#content article img {
 		float: none;
+	}
 	
 	textarea {
 		max-width: 100%;

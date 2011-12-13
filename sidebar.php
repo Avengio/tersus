@@ -8,14 +8,20 @@
 <aside id="sidebar-1">
 	<ul>
 	<?php  //Widgetized sidebar, if you have the plugin installed.
-		if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar( 'sidebar2' ) ) :
+		if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar( 'sidebar-1' ) ) :
 			// Display a list of pages
 			if ( is_home() ) { ?>
 				<?php wp_list_pages('include=18,48,54,70,67&title_li=<h2>' . __('More info') . '</h2>' ); ?>
 			<?php } else {
-				$children = wp_list_pages('title_li=<h2>More info</h2>&child_of='.$post->ID.'&echo=0'); ?>
-				<?php if ($children) { ?>
+				if($post->post_parent)
+					$children = wp_list_pages("title_li=<h2>More info</h2>&child_of=".$post->post_parent."&echo=0");
+				else
+					$children = wp_list_pages("title_li=<h2>More info</h2>&child_of=".$post->ID."&echo=0");
+				
+				if ($children) { ?>
+				<ul>
 					<?php echo $children; ?>
+				</ul>
 				<?php } 
 			} ?>
 		<?php
@@ -23,6 +29,7 @@
 		wp_list_categories('show_count=1&title_li=<h2>Categories</h2>');
 		
 		?>
+		
 		<li><h2>Archives</h2>
 			<ul>
 				<?php
@@ -55,27 +62,27 @@
 
 				<?php } elseif (is_category()) { /* If this is a category archive */ ?>
 	
-					<p>You are currently browsing the archive for the <strong>“<?php single_cat_title(''); ?>”</strong> category.</p>
+					<p>You are browsing the <strong>“<?php single_cat_title(''); ?>”</strong> category archive.</p>
 
-				<?php } elseif (is_day()) { /* If this is a yearly archive */ ?>
+				<?php } elseif (is_day()) { /* If this is a daily archive */ ?>
 					
-					<p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php echo bloginfo('name'); ?></a> archive for <strong><?php the_time('l, F jS, Y'); ?></strong>.</p>
+					<p>You are browsing the <strong><?php the_time('l, F jS, Y'); ?></strong> archive.</p>
 
 				<?php } elseif (is_month()) { /* If this is a monthly archive */ ?>
 
-					<p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php echo bloginfo('name'); ?></a> archive for <strong><?php the_time('F, Y'); ?></strong>.</p>
+					<p>You are browsing the <strong><?php the_time('F, Y'); ?></strong> archive.</p>
 
 				<?php } elseif (is_year()) { /* If this is a yearly archive */ ?>
 
-					<p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php echo bloginfo('name'); ?></a> archive for <strong><?php the_time('Y'); ?></strong>.</p>
+					<p>You are browsing the <strong><?php the_time('Y'); ?></strong> archive.</p>
 
-				<?php } elseif (is_search()) { /* If this is a monthly archive */ ?>
+				<?php } elseif (is_search()) { /* If this is search result */ ?>
 					
-					<p>You have searched the <a href="<?php echo bloginfo('url'); ?>/"><?php echo bloginfo('name'); ?></a> archive for <strong>“<?php the_search_query(); ?>”</strong>.</p>
+					<p>You are browsing the search results for <strong>“<?php the_search_query(); ?>”</strong>.</p>
 
 				<?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { /* Everything else */ ?>
 					
-					<p>You are currently browsing the <a href="<?php echo bloginfo('url'); ?>/"><?php echo bloginfo('name'); ?></a> archive.</p>
+					<p>You are browsing the archive.</p>
 
 				<?php } ?>
 			</li>
