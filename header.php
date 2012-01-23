@@ -39,10 +39,13 @@
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		
+		<!-- Add our TypeKit -->
+		<script type="text/javascript" src="http://use.typekit.com/las4ity.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</head>
 
 	<body>
+		<div class="container">
 		<?php
 			// Removed body_class() call from body element
 			// We may want to revisit this at a later date
@@ -50,20 +53,19 @@
 			// page-level ids or classes instead
 		?>
 
-		<?php if ($tersus_announcement_display == "true"): ?>
+		<?php if ($tersus_announcement_display == "1"): ?>
 		<section id="announcement">
 			<?php echo (stripslashes($tersus_announcement)); ?>
 		</section>
 		<?php endif; ?>
-		
-		<header>
+		<header class="line">
+			<a class="cf" href="<?php echo get_option('home'); ?>/" title="This will take you home"><img src="<?php bloginfo('template_directory'); ?>/images/ca.logo.png" width="102" height=102" alt="Calgary Aikikai Logo" /></a>		
 			<h1><a href="<?php echo get_option('home'); ?>/" title="This will take you home"><?php bloginfo('name'); ?></a></h1>
 			<p><?php bloginfo('description'); ?></p>
-			<nav class="primary">
-				<ul>
-				  <li><a href="<?php echo get_settings('home'); ?>">Home</a>
-				  <?php wp_list_pages('title_li=&depth=1&exclude=18,48,54,70,67'); ?>
-				</ul>
-				
-			</nav>
 		</header>
+		<nav class="prime">
+			<ul>
+			  <li><a href="<?php echo get_settings('home'); ?>">Home</a>
+			  <?php wp_list_pages('title_li=&depth=1&exclude=18,48,54,70,67'); ?>
+			</ul>
+		</nav>

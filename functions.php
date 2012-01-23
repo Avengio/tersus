@@ -21,18 +21,33 @@
 	$shortname = "tersus";
 	$options = array (
 	array( "name" => "Flavor",
-		"desc" => "Select which flavor of Tersus you’d like to use.",
+		"desc" => "Select which theme style you’d like to use.",
 		"id" => $shortname."_style_sheet",
 		"type" => "select",
 		"options" => array( "Default", "Advanced", "Super Ginormous" ), 
 		"std" => "default"),
+	array( "name" => "Sidebar",
+		"desc" => "Show subpages in page list",
+		"id" => $shortname."_page_depth",
+		"type" => "checkbox",
+		"std" => "true"),
+	array( "name" => "",
+		"desc" => "Show the number of posts beside each category",
+		"id" => $shortname."_category_count",
+		"type" => "checkbox",
+		"std" => "true"),
+	array( "name" => "",
+		"desc" => "Show the number of posts beside each archive",
+		"id" => $shortname."_archive_count",
+		"type" => "checkbox",
+		"std" => "true"),
 	array( "name" => "Announcement",
-		"desc" => "Display an announcement on every page.",
+		"desc" => "Display the following text on every page",
 		"id" => $shortname."_announcement_display",
 		"type" => "checkbox",
-		"std" => "off"),
-	array( "name" => "Announcement Text",
-		"desc" => "Enter the text to appear in the announcement area. HTML is allowed.",
+		"std" => ""),
+	array( "name" => "",
+		"desc" => "HTML may be used to format the announcement text.",
 		"id" => $shortname."_announcement",
 		"type" => "textarea",
 		"std" => "<p>This text will appear in the announcement area.</p>"),
@@ -120,7 +135,7 @@
 
 		<tr>
 			<th><strong><?php echo $value['name']; ?></strong></th>
-			<td><?php if(get_option($value['id'])){ $checked = "checked=\"checked\""; }else{ $checked = "";} ?><input type="checkbox" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="true" <?php echo $checked; ?> /> <?php echo $value['desc']; ?></td>
+			<td><input type="checkbox" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="1" <?php checked(true, get_option( $value['id'] )); ?> /> <?php echo $value['desc']; ?></td>
 		</tr>
 
 		<?php break;
