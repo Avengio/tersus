@@ -98,14 +98,10 @@ input[type=url] {
 header {
 	border-bottom: 1px solid #AAA;
 
-	margin: 0 -1em 1em -1em;
+	margin: 0 -1em 0 -1em;
 	padding: 1em;
 	background:#ccd6d6;
 	border-top: 7px solid #333;
-	border-bottom: 7px solid #333;
-	-moz-box-shadow: 0 3px 3px rgba(0,0,0,.5);
-	-webkit-box-shadow: 0 3px 3px rgba(0,0,0,.5);
-    box-shadow:  0 3px 3px rgba(0,0,0,.5);    
 	}
 
 header h1,
@@ -132,7 +128,17 @@ header p {
 	}
 
 /* Primary navigation */
-nav.prime {}
+nav.prime {
+	margin: 0 -1em 1em -1em;
+	padding: 1em;
+	background:#fff
+	border-bottom: 7px solid #333;
+	-moz-box-shadow: 0 3px 3px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0 3px 3px rgba(0,0,0,.5);
+    box-shadow:  0 3px 3px rgba(0,0,0,.5);    
+
+	
+	}
 nav.prime ul {margin:0;padding:0;}
 nav.prime li {list-style-type: none;display:inline-block;}
 nav.prime li a {padding:.1875em .75em;}

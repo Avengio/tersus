@@ -7,9 +7,12 @@
 
 <?php get_header(); ?>
 
+<section class="line">
+	<img style="margin-top:1em;border:7px solid #333;" src="http://placehold.it/100x50" alt="<##>" />
+</section>
 
 <section id="content">
-<!-- Question buhkets. Wherez ma buhket!? -->
+	<!-- Question buhkets. Wherez ma buhket!? -->
 	<section class="line buckets">
 		<article class="unit size1of3">
 			<?php 
