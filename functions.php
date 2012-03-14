@@ -179,12 +179,14 @@
 			'before_title' => '<h2 class="widgettitle">',
 			'after_title' => '</h2>',
 		));
-		register_sidebar(array('name'=>'Sidebar2',
+		
+// We only need one sidebar
+/*		register_sidebar(array('name'=>'Sidebar2',
 			'before_widget' => '<li id="%1$s" class="widget %2$s">',
 			'after_widget' => '</li>',
 			'before_title' => '<h2 class="widgettitle">',
 			'after_title' => '</h2>',
-		));
+		));*/
 	}
 
 // Adds support for Post Formats -- http://codex.wordpress.org/Post_Formats
@@ -464,5 +466,13 @@ function tersus_comment($comment, $args, $depth) {
 	}
 
 	add_filter('excerpt_more', 'new_excerpt_more');
+
+// Add a home link to the pages widget so that we can have it as a menu item
+	
+	function home_page_menu_args( $args ) {
+		$args['show_home'] = true;
+		return $args;
+		}
+	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 
 ?>

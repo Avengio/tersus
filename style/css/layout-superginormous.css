@@ -240,14 +240,12 @@ footer {
 		padding: 0 0 2.5% 0;
 		width: auto;
 	}
-
 	#content {
 		float: left;
 		margin: 0 0 2.5% 0;
 		padding: 0 0 2.5% 0;
 		width: 65%;
 	}
-
 	aside {
 		float: right;
 		clear: right;

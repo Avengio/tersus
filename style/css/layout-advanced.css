@@ -4,13 +4,21 @@
 	This is an optional stylesheet that provides some initial layout and structure.
 */
 
+/* Font-family assignment */
+	/* Sans serif */
+body, header h1, h4, h5, h6 {font-family: "museo-sans-1", "museo-sans-2", helvetica, arial, sans-serif;}
+/* Serif */
+h1, h2, h3 {font-family:"museo-slab-1","museo-slab-2", Georgia, Garamond, Times, "Times New Roman", serif;}
+
 
 body {
 	color: #333;
 	line-height: 1.4;
 	margin: 0;
-	padding: 2em;
+	padding:0 2em 2em;
+	background: #fff url("../../images/ca.tile.bg.gif") repeat 0 0;
 }
+.container {background:#fff;border:1px solid #ccc; border-top:0;border-bottom:0;padding:0 1em;}
 
 a, a:visited {
 	background: transparent;
@@ -89,8 +97,11 @@ input[type=url] {
 
 header {
 	border-bottom: 1px solid #AAA;
-	margin: 0 0 2em 0;
-	padding: 0 0 2em 0;
+
+	margin: 0 -1em 0 -1em;
+	padding: 1em;
+	background:#ccd6d6;
+	border-top: 7px solid #333;
 	}
 
 header h1,
@@ -103,22 +114,45 @@ article h2,
 	margin: 0 0 .25em 0;
 	padding: 0;
 	}
+header h1 {margin-top:.4em;text-shadow:1px 1px 1px rgba(255,255,255,1)}
+header h1 a, header h1 a:visited{color:#332461;}
+header img {float:left;padding-right: .5em;}	
 
 header p {
-	color: #AAA;
-	margin: 0;
+	color: #333;
+	font-style: italic;
+	font-weight: 300;
+	margin: -.55em 0 0 7.2em;
+	letter-spacing: 1px;
 	padding: 0;
 	}
+
+/* Primary navigation */
+nav.prime {
+	margin: 0 -1em 1em -1em;
+	padding: 1em;
+	background:#fff
+	border-bottom: 7px solid #333;
+	-moz-box-shadow: 0 3px 3px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0 3px 3px rgba(0,0,0,.5);
+    box-shadow:  0 3px 3px rgba(0,0,0,.5);    
+
+	
+	}
+nav.prime ul {margin:0;padding:0;}
+nav.prime li {list-style-type: none;display:inline-block;}
+nav.prime li a {padding:.1875em .75em;}
+nav.prime li:first-child a {padding-left:0;}
 	
 #content {
 	float: left;
 	margin: 0;
 	padding: 0 0 1em 0;
-	width: 49%;
+	width: 75%;
 	}
 
 #content > h1 {
-	color: #960;
+	color: #332461;
 	font-weight: normal;
 	font-size: 2em;
 	line-height: 1;
@@ -177,6 +211,44 @@ header p {
 	max-width: 100%;
 	}
 
+
+#content .buckets {border-bottom: 1px solid #aaa;margin:0 0 2em;padding:0 0 1em;}
+#content .buckets article {border:none;margin:0;}
+#content .buckets p, #content .buckets h3 {padding: 0 1.5em 0 0}
+#content .buckets img.thumb {float:left; padding:1px;margin:.2em .5em 0 0;border:1px dashed #aaa;}
+
+/* Post Format Styles */
+/* --- Aside */
+.post-aside p + p { display:none; }
+/* --- Quote */
+.post-quote {}
+.post-quote h2,
+.post-quote h2 + p {
+	display:none;
+}  
+.post-quote blockquote {
+	margin:0 0 5%;
+	padding:5%;
+}
+.post-quote blockquote p {
+	font: normal 1.4em/1.4 georgia,times,serif;
+	margin:0 0 .2em;
+}
+.post-quote p cite {
+	display: block;
+	font: bold 60% sans-serif;
+	text-align: right;
+}
+.post-quote blockquote + p,
+.post-quote blockquote + p + p,
+.post-quote blockquote + p + ul,
+.post-quote blockquote + p + ul + p,
+.post-quote blockquote + p + p + ul {
+	display:none;
+}
+
+	
+
 aside {
 	float: right;
 	margin: 0;
@@ -221,6 +293,18 @@ footer {
 	padding: 2em 0;
 	border-top: 1px solid #AAA;
 	}
+	
+/* micro clearfix For modern browsers http://nicolasgallagher.com/micro-clearfix-hack/ */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
 	
 
 /*
