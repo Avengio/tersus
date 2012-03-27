@@ -24,6 +24,5 @@
 			<p>Subscribe to <a href="<?php bloginfo('rss2_url'); ?>" rel="alternate" title="Feed me.">Posts (RSS)</a> or <a href="<?php bloginfo('comments_rss2_url'); ?>" rel="alternate" title="Feed me.">Comments (RSS)</a></p>
 			<?php wp_footer(); ?>
 		</footer>
-		</div>
 	</body>
 </html>
