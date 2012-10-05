@@ -201,7 +201,7 @@
 		$c = array();
 
 		// hentry for hAtom compliance
-		$c[] = 'hentry';
+		$c[] = 'hentry span12';
 
 		// Determine Post Format
 		$post_format = get_post_format( $post->ID );
