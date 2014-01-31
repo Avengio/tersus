@@ -195,13 +195,13 @@
 	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
 
 // Replace default post class verbosity
-
+if(!function_exists('simple_post_class')) :
 	function simple_post_class() {
 		$post = get_post($post_id);
 		$c = array();
 
 		// hentry for hAtom compliance
-		$c[] = 'hentry span12';
+		$c[] = 'hentry';
 
 		// Determine Post Format
 		$post_format = get_post_format( $post->ID );
@@ -212,6 +212,7 @@
 
 		return $c;
 	}
+endif;
 
 	add_filter( 'post_class', 'simple_post_class' );
 
@@ -247,13 +248,13 @@
 
 
 // Remove crufty class attributes from avatars
-
+if(!function_exists('decruft_avatars')) :
 	function decruft_avatars($str) {
 		return preg_replace('/ class=[\"\'].+?[\"\']/',' class="photo"',$str);
 	}
 
 	add_filter ('get_avatar','decruft_avatars');
-
+endif;
 
 // Replacement gallery shortcut function
 // Removes default cruft and verbosity
@@ -357,20 +358,21 @@ function tersus_gallery($attr) {
 // Replacement comment callback function
 // Removes default class and ID verbosity
 
-function tersus_comment($comment, $args, $depth) {
-	$GLOBALS['comment'] = $comment; ?>
-	<li id="comment-<?php comment_ID() ?>">
-		<p>Posted by <span class="vcard author"><?php echo get_avatar( $comment->comment_author_email, 48 ); ?> <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?></span> on <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>" rel="bookmark" title="<?php comment_time('c') ?>"><?php comment_time('l, F jS, Y') ?></a>.</p>
+if(!function_exists('simple_post_class')) :
+    function tersus_comment($comment, $args, $depth) {
+        $GLOBALS['comment'] = $comment; ?>
+        <li id="comment-<?php comment_ID() ?>">
+            <p>Posted by <span class="vcard author"><?php echo get_avatar( $comment->comment_author_email, 48 ); ?> <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?></span> on <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>" rel="bookmark" title="<?php comment_time('c') ?>"><?php comment_time('l, F jS, Y') ?></a>.</p>
 
-	<?php if ($comment->comment_approved == '0') : ?>
-		<p><em><?php _e('Your comment is awaiting moderation.') ?></em></p>
-	<?php endif; ?>
+        <?php if ($comment->comment_approved == '0') : ?>
+            <p><em><?php _e('Your comment is awaiting moderation.') ?></em></p>
+        <?php endif; ?>
 
-	<?php comment_text() ?>
+        <?php comment_text() ?>
 
-	<p><?php edit_comment_link(__('Edit'),'',' | ') ?><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?></p>
-<?php
-	}
+        <p><?php edit_comment_link(__('Edit'),'',' | ') ?><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?></p><?php
+    }
+endif;
 
 
 // Update comment reply link anchors 
